@@ -1,0 +1,24 @@
+{
+  "name": "toronto-life",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite --preview --host 0.0.0.0 --port 5173",
+    "test": "node --test src/game/*.test.js",
+    "test:ui": "esbuild ui.test.mjs --bundle --platform=node --format=esm --outfile=.ui-test.mjs --external:react --external:react-dom --external:jsdom --external:react-dom/client --loader:.jsx=jsx --jsx=automatic --log-level=error && node .ui-test.mjs",
+    "test:all": "npm test && npm run test:ui && npm run sim",
+    "sim": "node sim.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^29.1.1",
+    "vite": "^5.4.11"
+  }
+}
